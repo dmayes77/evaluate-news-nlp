@@ -18,7 +18,7 @@ const aylienapi = new aylien({
   application_key: process.env.API_KEY,
 });
 
-const distPath = path.join(__dirname, '..//..//dist');
+// const distPath = path.join(__dirname, "..//..//dist");
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,8 +32,8 @@ app.use(express.static('dist'));
 console.log(__dirname);
 
 // Routes
-app.get('/', function (req, res) {
-  res.sendFile(path.resolve(distPath, 'index.html'));
+app.get('/', (req, res) => {
+  res.sendFile('dist/index.html');
 });
 
 app.get('/api', (req, res) => {
