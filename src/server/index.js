@@ -46,9 +46,9 @@ app.get('/api', (req, res) => {
 });
 
 // designates what port the app will listen to for incoming requests
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+// }
 
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, function () {
