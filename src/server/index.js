@@ -6,9 +6,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const aylien = require('aylien_textapi');
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
@@ -48,6 +45,10 @@ app.get('/api', (req, res) => {
 });
 
 // designates what port the app will listen to for incoming requests
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, function () {
   console.log(`Example app listening on port ${PORT}!`);
