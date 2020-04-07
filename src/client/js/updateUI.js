@@ -1,7 +1,5 @@
-const updateUI = (data, url) => {
-  console.log(url);
-  let newHTML = `
-    <div class="card">
+const updateUI = (data) => {
+  let newHTML = `<div class="card">
       <p>
         <strong>Polarity: </strong>
         <span id="polarity">${data.polarity}</span>
