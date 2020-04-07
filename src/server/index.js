@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const aylien = require('aylien_textapi');
 
+// Start up an instance of app
+const app = express();
+
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
@@ -15,8 +18,6 @@ const aylienapi = new aylien({
   application_key: process.env.API_KEY,
 });
 
-// Start up an instance of app
-const app = express();
 const distPath = path.join(__dirname, '..//..//dist');
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
