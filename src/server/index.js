@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const aylien = require('aylien_textapi');
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
@@ -31,6 +34,10 @@ app.use(express.static('dist'));
 console.log(__dirname);
 
 // Routes
+app.get('/', (req, res) => {
+  res.sendFile('dist/index.html');
+});
+
 app.get('/api', (req, res) => {
   let { url } = req.query;
   aylienapi.sentiment(url, (err, data) => {
